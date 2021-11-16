@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.urls import path
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
-from InvApp.views.productosView import ProductListAPIView
+from prodApp.views.productosView import ProductListAPIView
 from authApp import views
-from InvApp import views as viewsProduct
+from prodApp import views as viewsProduct
 
 
 urlpatterns = [
@@ -30,9 +30,9 @@ urlpatterns = [
     path('user/<int:pk>/', views.UserDetailView.as_view()),
     path('producto/<int:pk>',viewsProduct.product_detail_view),
     path('producto/',viewsProduct.product_api_view),
-    path('empleado/<int:pk>',viewsProduct.empleado_detail_view),
-    path('empleado/',viewsProduct.empleado_api_view),
-    path('cliente/',viewsProduct.cliente_api_view),
-    path('cliente/<int:pk>',viewsProduct.cliente_detail_view),
+    #path('empleado/<int:pk>',viewsProduct.empleado_detail_view),
+    #path('empleado/',viewsProduct.empleado_api_view),
+    #path('cliente/',viewsProduct.cliente_api_view),
+    #path('cliente/<int:pk>',viewsProduct.cliente_detail_view),
     
 ]
