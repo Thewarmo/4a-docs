@@ -22,14 +22,14 @@ from prodApp import views as viewsProduct
 
 urlpatterns = [
     path('login/', TokenObtainPairView.as_view()),
-    path('refresh/', TokenRefreshView.as_view()),
-    path('verifyToken/', views.VerifyTokenView.as_view()),
+    #path('refresh/', TokenRefreshView.as_view()),
+    #path('verifyToken/', views.VerifyTokenView.as_view()),
     path('user/', views.UserCreateView.as_view()),
     path('user/all', views.UserCreateView.user_api_view),
     path('user/all/<str:username>', views.UserCreateView.user_detail_view),
     path('user/<int:pk>/', views.UserDetailView.as_view()),
-    path('producto/<int:pk>',viewsProduct.product_detail_view),
-    path('producto/',viewsProduct.product_api_view),
+    #path('producto/<int:pk>',viewsProduct.product_detail_view),
+    #path('producto/',viewsProduct.product_api_view),
     #path('empleado/<int:pk>',viewsProduct.empleado_detail_view),
     #path('empleado/',viewsProduct.empleado_api_view),
     #path('cliente/',viewsProduct.cliente_api_view),
