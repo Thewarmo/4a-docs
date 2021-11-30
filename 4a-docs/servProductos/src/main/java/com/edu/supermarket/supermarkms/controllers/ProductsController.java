@@ -1,6 +1,7 @@
 package com.edu.supermarket.supermarkms.controllers;
 
 import com.edu.supermarket.supermarkms.exceptions.AccountNotFoundException;
+import com.edu.supermarket.supermarkms.exceptions.ProductsNotFoundException;
 import com.edu.supermarket.supermarkms.models.Productos;
 import com.edu.supermarket.supermarkms.repositories.ProductosRepository;
 import org.springframework.web.bind.annotation.*;
@@ -48,5 +49,17 @@ public class ProductsController {
     @DeleteMapping("/prodElim/{id}")
     void deleteProductos(@PathVariable Integer idProducto){
         productosRepository.deleteById(idProducto);
+    }
+
+    @DeleteMapping("/eliminar/{idProducto}")
+    public String deleteUser(
+            @PathVariable(value = "idProducto") int idProducto) throws Exception {
+        Productos prod = productosRepository.findById(idProducto)
+                .orElseThrow(() -> new ProductsNotFoundException("Producto no encontrado :: "+ idProducto));
+
+        productosRepository.delete(prod);
+        String respuesta = new String();
+        respuesta = "se elimino el producto"+idProducto;
+        return respuesta;
     }
 }
