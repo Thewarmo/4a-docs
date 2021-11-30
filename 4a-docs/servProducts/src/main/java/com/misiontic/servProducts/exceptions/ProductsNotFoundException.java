@@ -1,4 +1,4 @@
-package com.edu.supermarket.supermarkms.exceptions;
+package com.misiontic.servProducts.exceptions;
 
 public class ProductsNotFoundException extends RuntimeException{
 

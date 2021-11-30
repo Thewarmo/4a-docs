@@ -1,10 +1,10 @@
-package com.edu.supermarket.supermarkms;
+package com.misiontic.servProducts;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SupermarkmsApplicationTests {
+class ServProductsApplicationTests {
 
 	@Test
 	void contextLoads() {

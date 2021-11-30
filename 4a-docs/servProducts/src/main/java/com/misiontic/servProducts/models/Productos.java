@@ -1,7 +1,6 @@
-package com.edu.supermarket.supermarkms.models;
+package com.misiontic.servProducts.models;
 
 import org.springframework.data.annotation.Id;
-import java.util.Date;
 
 public class Productos {
 
