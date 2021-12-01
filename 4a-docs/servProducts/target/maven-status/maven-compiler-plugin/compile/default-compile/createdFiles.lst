@@ -1,0 +1,6 @@
+com/misiontic/servProducts/repositories/ProductosRepository.class
+com/misiontic/servProducts/models/Productos.class
+com/misiontic/servProducts/exceptions/ProductsNotFoundAdvice.class
+com/misiontic/servProducts/exceptions/ProductsNotFoundException.class
+com/misiontic/servProducts/controllers/ProductsController.class
+com/misiontic/servProducts/ServProductsApplication.class

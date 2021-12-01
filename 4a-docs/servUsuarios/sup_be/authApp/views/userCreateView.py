@@ -10,6 +10,19 @@ from authApp.serializers.userSerializer import UserSerializer
 
 class UserCreateView(views.APIView):
 
+    def post(self, request, *args, **kwargs):
+        serializer = UserSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        tokenData = {"username":request.data["username"],
+                    "password":request.data["password"]}
+                    
+        tokenSerializer = TokenObtainPairSerializer(data=tokenData)
+        tokenSerializer.is_valid(raise_exception=True)
+
+        return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)
+    
     @api_view(['GET'])
     def user_api_view(request):
         if request.method == 'GET':
@@ -26,15 +39,3 @@ class UserCreateView(views.APIView):
         if request.method == 'GET':
             user_serializer = UserSerializer(user)
             return Response(user_serializer.data)
-
-    def post(self, request, *args, **kwargs):
-        serializer = UserSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-
-        tokenData = {"username":request.data["username"], 
-                     "password":request.data["password"]}
-        tokenSerializer = TokenObtainPairSerializer(data=tokenData)
-        tokenSerializer.is_valid(raise_exception=True)
-                
-        return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)
