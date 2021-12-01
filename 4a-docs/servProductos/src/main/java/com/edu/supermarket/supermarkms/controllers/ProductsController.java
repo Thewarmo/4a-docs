@@ -1,11 +1,20 @@
 package com.edu.supermarket.supermarkms.controllers;
 
 import com.edu.supermarket.supermarkms.exceptions.AccountNotFoundException;
+import com.edu.supermarket.supermarkms.exceptions.ProductsNotFoundAdvice;
+import com.edu.supermarket.supermarkms.exceptions.ProductsNotFoundException;
 import com.edu.supermarket.supermarkms.models.Productos;
 import com.edu.supermarket.supermarkms.repositories.ProductosRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.*;
+import java.net.http.HttpResponse;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static org.springframework.http.HttpStatus.*;
 
 @RestController
 public class ProductsController {
@@ -45,8 +54,20 @@ public class ProductsController {
         });
     }
 
-    @DeleteMapping("/prodElim/{id}")
+    @DeleteMapping("/prodElim/{idProducto}")
     void deleteProductos(@PathVariable Integer idProducto){
         productosRepository.deleteById(idProducto);
+    }
+
+    @DeleteMapping("/eliminar/{idProducto}")
+    public String deleteUser(
+            @PathVariable(value = "idProducto") int idProducto) throws Exception {
+        Productos prod = productosRepository.findById(idProducto)
+                .orElseThrow(() -> new ProductsNotFoundException("Producto no encontrado :: "+ idProducto));
+
+        productosRepository.delete(prod);
+        String respuesta = new String();
+        respuesta = "se elimino el producto"+idProducto;
+        return respuesta;
     }
 }
