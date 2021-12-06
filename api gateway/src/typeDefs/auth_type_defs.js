@@ -21,7 +21,6 @@ username: String!
 password: String!
 name: String!
 email: String!
-balance: Int
 }
 
 type UserDetail {

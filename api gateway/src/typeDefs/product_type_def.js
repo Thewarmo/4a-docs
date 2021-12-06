@@ -10,13 +10,7 @@ type Producto{
     imagen: String
 }
 
-type Account {
-    username: String!
-    balance: Int!
-    lastChange: String!
-    }
-
-input RegistrarProd{
+input ProductoInput{
     idProducto: Int!
     nombre_producto: String!
     precio: Float
@@ -24,29 +18,25 @@ input RegistrarProd{
     imagen: String
 }
 
-input BorrarProducto{
-    idProducto: Int!
-}
 
 input ActualizarProducto{
-    idProducto: Int
+    idProducto: Int!
     nombre_producto: String
-    precio: String
-    cantidad: Float
+    precio: Float
+    cantidad: Int
     imagen: String
 }
 
 
 type Mutation{
-    registrarProducto(productInput: RegistrarProd): Producto!
-    borrarProducto(borrarProd: BorrarProducto): String!
-    actualizarProd(producto: ActualizarProducto,idProducto: Int):Producto
+    crearProducto(productInput: ProductoInput): Producto
+    borrarProducto(idProducto: Int!): String
+    actualizarProducto(productUpdate: ActualizarProducto): Producto
 }
 
 type Query{
     prodById(idProducto: Int!): Producto!
-    prodAll: [Producto]!
-    accountByUsername(username: String!): Account
+    prodAll: [Producto]
 }
 
 `;
