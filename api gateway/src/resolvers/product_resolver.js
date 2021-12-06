@@ -4,6 +4,10 @@ const prodResolver ={
            return await dataSources.productAPI.traerProducto(idProducto);
           
         },
+
+        prodAll: async(_,{  },{ dataSources })=>{
+            return await dataSources.productAPI.productsAll();
+        }
     },
     Mutation: {
         crearProducto: async(_, { productInput }, {dataSources})=>{

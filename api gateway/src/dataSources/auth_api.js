@@ -9,7 +9,10 @@ async createUser(user) {
 user = new Object(JSON.parse(JSON.stringify(user)));
 return await this.post(`/user/`, user);
 }
-async getUser(userId) { return await this.get(`/user/${userId}/`);
+async getUser(userId) { 
+    let id= userId;
+    console.log(id);
+    return await this.get(`/user/${userId}/`);
 }
 async authRequest(credentials) {
 credentials = new Object(JSON.parse(JSON.stringify(credentials)));

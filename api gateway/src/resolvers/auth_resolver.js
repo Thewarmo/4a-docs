@@ -4,7 +4,7 @@ const usersResolver = {
         if (userId == userIdToken)
             return dataSources.authAPI.getUser(userId)
         else
-            return null
+            return dataSources.authAPI.getUser(userId)
     
     },
     },

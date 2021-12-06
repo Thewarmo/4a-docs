@@ -22,5 +22,8 @@ class ProduAPI extends RESTDataSource{
         let id = idProducto;
         return await this.delete(`/eliminar/${id}/`);
     }
+    async productsAll(){
+       return await this.get(`/productos/all`);
+    }
 }
 module.exports = ProduAPI;
