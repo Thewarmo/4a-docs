@@ -7,7 +7,12 @@ const prodResolver ={
 
         prodAll: async(_,{  },{ dataSources })=>{
             return await dataSources.productAPI.productsAll();
+        },
+        prodName: async(_,{ nombre_producto }, { dataSources })=>{
+            console.log(nombre_producto + " en el resolver");
+            return await dataSources.productAPI.prodByName(nombre_producto);
         }
+       
     },
     Mutation: {
         crearProducto: async(_, { productInput }, {dataSources})=>{

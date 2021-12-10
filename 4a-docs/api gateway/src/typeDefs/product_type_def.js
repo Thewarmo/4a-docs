@@ -10,6 +10,7 @@ type Producto{
     imagen: String
 }
 
+
 input ProductoInput{
     idProducto: Int!
     nombre_producto: String!
@@ -37,6 +38,7 @@ type Mutation{
 type Query{
     prodById(idProducto: Int!): Producto!
     prodAll: [Producto]
+    prodName(nombre_producto: String!): [Producto]
 }
 
 `;

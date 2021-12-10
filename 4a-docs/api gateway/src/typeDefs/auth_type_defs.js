@@ -21,6 +21,7 @@ username: String!
 password: String!
 name: String!
 email: String!
+rol: String!
 }
 
 type UserDetail {
@@ -29,6 +30,7 @@ username: String!
 password: String!
 name: String!
 email: String!
+rol: String!
 }
 
 type Mutation {
@@ -39,6 +41,7 @@ refreshToken(refresh: String!): Access!
 
 type Query {
 userDetailById(userId: Int!): UserDetail!
+userAll: [UserDetail]
 }
 
 `;

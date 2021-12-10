@@ -1,7 +1,10 @@
 const { RESTDataSource } = require('apollo-datasource-rest');
 const serverConfig = require('../server');
 
+let lista = {};
+
 class ProduAPI extends RESTDataSource{
+
     constructor(){
         super();
         this.baseURL = serverConfig.productos_api_url;
@@ -25,5 +28,11 @@ class ProduAPI extends RESTDataSource{
     async productsAll(){
        return await this.get(`/productos/all`);
     }
+
+    async prodByName(nombre_producto){
+        return await this.get(`/productosName/${nombre_producto}/`);
+    }
+    
+
 }
 module.exports = ProduAPI;
