@@ -16,9 +16,9 @@ class ProduAPI extends RESTDataSource{
     async traerProducto(idProducto){
         return await this.get(`/productos/${idProducto}/`);
     }
-    async updateProducto(producto){
+    async updateProducto(idProducto){
+        
         producto = new Object(JSON.parse(JSON.stringify(producto)));
-        let idProducto = producto.idProducto;
         return await this.put(`/prodAdd/${idProducto}`,producto)
     }
     async delProducto(idProducto){
@@ -32,6 +32,7 @@ class ProduAPI extends RESTDataSource{
     async prodByName(nombre_producto){
         return await this.get(`/productosName/${nombre_producto}/`);
     }
+   
     
 
 }
